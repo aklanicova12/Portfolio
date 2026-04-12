@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Manrope", sans-serif;
+  --font-serif-elegant: "Montserrat", serif;
+  --font-display: "Instrument Serif", serif;
+
+  --color-primary: #000a1e;
+  --color-secondary: #a43c12;
+  --color-tertiary: #c9a900;
+  --color-surface: #f9f9f9;
+  --color-surface-container-low: #f3f3f4;
+  --color-outline-variant: #c4c6cf;
+}
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@200;400;600;700;800&family=Montserrat:ital,wght@0,300;1,300&family=Instrument+Serif:ital@0;1&display=swap');
+
+  body {
+    @apply bg-surface text-primary font-sans selection:bg-secondary/20;
+  }
+}
+
+@layer utilities {
+  .grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+  }
+
+  .blueprint-grid {
+    background-image: linear-gradient(to right, rgba(196, 198, 207, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(196, 198, 207, 0.1) 1px, transparent 1px);
+    background-size: 100px 100px;
+  }
+
+  .light-sweep {
+    background: linear-gradient(45deg, #ffffff 0%, #f3f3f4 50%, #ffffff 100%);
+    background-size: 200% 200%;
+  }
+}
