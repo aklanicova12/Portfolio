@@ -7,7 +7,7 @@ export default function Header() {
     <header className="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-md border-b border-outline-variant/20">
       <nav className="flex justify-between items-center px-6 md:px-10 py-6 w-full max-w-full">
         <div className="text-xl font-bold tracking-[-0.04em] text-[#002147] font-headline">
-          Elena Rossi
+          Anna Klanicová
         </div>
         
         <div className="hidden md:flex gap-10 items-center">

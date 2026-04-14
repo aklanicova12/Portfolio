@@ -2,52 +2,33 @@ import { motion } from 'motion/react';
 
 export default function Closure() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Video Background */}
-      <video
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260228_065522_522e2295-ba22-457e-8fdb-fbcd68109c73.mp4"
-        className="absolute inset-0 w-full h-full object-cover opacity-60"
-        muted
-        autoPlay
-        loop
-        playsInline
+    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      {/* Animated Image Background */}
+      <img
+        src="/clouds2.jpg"
+        alt="Clouds background"
+        className="absolute inset-0 w-full h-full object-cover z-0 animate-slow-rise"
       />
       
-      {/* Gradient Overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+      {/* Gradient Overlay for top fade */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white/10 to-transparent z-10"></div>
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-6 space-y-24">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="relative inline-block px-10 py-16 bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl"
-        >
-          <p className="font-sans text-xl md:text-2xl text-white leading-relaxed font-light text-shadow-premium">
-            Moje lektorská praxe se tak stala přirozeným odrazovým můstkem pro magisterskou profilaci Technologie ve vzdělávání. Chci umět tyto moderní nástroje nejen ovládat, ale i koncepčně integrovat do výuky tak, aby byl proces učení pro studenty co nejefektivnější.
-          </p>
-        </motion.div>
-
+      {/* Quote Box (Premium Glassmorphism) */}
+      <div className="relative z-20 bg-white/40 backdrop-blur-md border border-white/50 rounded-3xl shadow-xl p-10 max-w-4xl text-center mx-6">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.3 }}
+          transition={{ duration: 1.5 }}
           className="space-y-6"
         >
-          <p className="font-display italic text-4xl md:text-6xl text-white tracking-tight text-shadow-premium">
+          <p className="font-display italic text-4xl md:text-6xl text-slate-900 tracking-tight">
             "Education is not something you can finish."
           </p>
-          <p className="font-sans uppercase tracking-[0.4em] text-xs text-white/60 font-bold">
+          <p className="font-sans uppercase tracking-[0.4em] text-xs text-slate-900 font-bold">
             — Isaac Asimov
           </p>
         </motion.div>
       </div>
-
-      <style dangerouslySetInnerHTML={{ __html: `
-        .text-shadow-premium {
-          text-shadow: 0 2px 20px rgba(0,0,0,0.5);
-        }
-      `}} />
     </section>
   );
 }
