@@ -50,8 +50,8 @@ export default function LandingPage() {
           className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0 flex justify-center"
           style={{ 
             // Soft mask to keep the immediate face area clear, but allow words near shoulders
-            maskImage: 'radial-gradient(ellipse at 50% 40%, transparent 15%, black 45%)', 
-            WebkitMaskImage: 'radial-gradient(ellipse at 50% 40%, transparent 15%, black 45%)' 
+            maskImage: 'radial-gradient(ellipse at 50% 45%, transparent 20%, black 50%)', 
+            WebkitMaskImage: 'radial-gradient(ellipse at 50% 45%, transparent 20%, black 50%)' 
           }}
         >
           <div className="relative w-full max-w-[1400px] h-full">
@@ -113,17 +113,17 @@ export default function LandingPage() {
         </div>
 
         {/* Hero Profile (Middle Layer) */}
-        <div className="relative z-10 flex flex-col items-center mt-20">
+        <div className="relative z-10 flex flex-col items-center mt-28">
           <motion.div 
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="relative w-full max-w-[280px] md:max-w-[380px] flex justify-center mb-6"
+            className="relative w-full max-w-[420px] md:max-w-[600px] flex justify-center mb-6"
           >
             {/* Subtle glow behind the person */}
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/50 to-purple-100/50 rounded-full blur-3xl -z-10"></div>
             <img
-              src="/image_9.png"
+              src="/AnnaKlanicová.png"
               alt="Anna Klanicová"
               className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
               referrerPolicy="no-referrer"

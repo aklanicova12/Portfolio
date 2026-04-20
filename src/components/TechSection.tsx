@@ -6,33 +6,36 @@ const CARDS = [
     icon: Calendar,
     title: 'Efektivní plánování',
     description: 'Od strukturování lekce až po rychlou tvorbu interaktivních podkladů.',
-    blueprint: 'Blueprint 01'
+    colorClass: 'text-amber-500',
+    glowClass: 'group-hover:drop-shadow-[0_0_12px_rgba(245,158,11,0.6)]',
+    lineGradient: 'from-amber-400 to-orange-500'
   },
   {
     icon: Network,
     title: 'Personalizaci výuky',
     description: 'Schopnost okamžitě vysvětlit látku na míru konkrétnímu studentovi a vygenerovat doplňující cvičení na specifické gramatické jevy.',
-    blueprint: 'Blueprint 02'
+    colorClass: 'text-teal-500',
+    glowClass: 'group-hover:drop-shadow-[0_0_12px_rgba(20,184,166,0.6)]',
+    lineGradient: 'from-teal-400 to-blue-400'
   },
   {
     icon: Puzzle,
     title: 'Kombinaci obsahu',
     description: 'Propojování odborné slovní zásoby s konkrétními potřebami skupiny v reálném čase.',
-    blueprint: 'Blueprint 03'
+    colorClass: 'text-rose-400',
+    glowClass: 'group-hover:drop-shadow-[0_0_12px_rgba(244,63,94,0.6)]',
+    lineGradient: 'from-rose-400 to-pink-500'
   }
 ];
 
 export default function TechSection() {
   return (
-    <section className="relative bg-surface-container-low py-32 px-6 md:px-24 overflow-hidden">
+    <section className="relative bg-white z-20 py-32 px-6 md:px-24 overflow-hidden">
       <div className="blueprint-grid absolute inset-0 opacity-40"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-20 text-center">
-          <span className="font-sans uppercase tracking-[0.3em] text-secondary text-xs mb-4 block">
-            Strategic Integration
-          </span>
-          <h2 className="font-headline text-5xl md:text-7xl font-extrabold text-primary tracking-tight">
+        <div className="mb-24 pt-8 text-center">
+          <h2 className="font-headline text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight">
             Technologie mi umožňují
           </h2>
         </div>
@@ -45,19 +48,17 @@ export default function TechSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-white p-10 border border-primary/10 transition-all duration-500 ease-[cubic-bezier(0.2,0,0,1)] hover:scale-[1.05] hover:shadow-[0_40px_80px_-15px_rgba(164,60,18,0.15)] cursor-default flex flex-col justify-between"
+              className="group relative bg-white/60 backdrop-blur-[20px] border border-slate-200/50 shadow-xl rounded-[2rem] p-8 hover:shadow-[0_0_40px_rgba(244,63,94,0.1)] transition-all cursor-default flex flex-col justify-between overflow-hidden"
             >
-              <div className="space-y-6">
-                <div className="w-12 h-12 border border-primary/20 flex items-center justify-center group-hover:border-secondary transition-colors duration-500">
-                  <card.icon className="w-6 h-6 text-primary group-hover:text-secondary transition-colors duration-500" />
+              <div className="space-y-6 relative z-10">
+                <div className={`mb-6 transition-colors duration-500 ${card.colorClass}`}>
+                  <card.icon className={`w-8 h-8 transition-all duration-300 ${card.glowClass}`} strokeWidth={1.5} />
                 </div>
-                <h3 className="font-headline text-2xl font-bold tracking-tight">{card.title}</h3>
-                <p className="font-sans text-primary/60 text-sm leading-relaxed">{card.description}</p>
+                <h3 className="font-headline text-2xl font-bold tracking-tight text-slate-900">{card.title}</h3>
+                <p className="font-sans text-slate-700 text-sm md:text-base leading-relaxed font-medium">{card.description}</p>
               </div>
-              <div className="mt-8 pt-8 border-t border-outline-variant/10">
-                <span className="font-sans text-[10px] uppercase tracking-widest text-primary/40">
-                  {card.blueprint}
-                </span>
+              <div className="absolute bottom-0 left-0 right-0 h-1">
+                <div className={`w-full h-full bg-gradient-to-r ${card.lineGradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}></div>
               </div>
             </motion.div>
           ))}

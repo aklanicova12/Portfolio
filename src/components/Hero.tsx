@@ -16,7 +16,6 @@ export default function Hero() {
       
       {/* Overlays */}
       <div className="absolute inset-0 bg-white/10 z-0"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-white z-0"></div>
       
       {/* Content */}
       <motion.div 
@@ -34,6 +33,9 @@ export default function Hero() {
           </p>
         </div>
       </motion.div>
+
+      {/* Perfect Hero Bottom Fade */}
+      <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
     </section>
   );
 }

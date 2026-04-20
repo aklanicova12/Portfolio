@@ -11,10 +11,10 @@ export default function Closure() {
       />
       
       {/* Gradient Overlay for top fade */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-white/10 to-transparent z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
 
       {/* Quote Box (Premium Glassmorphism) */}
-      <div className="relative z-20 bg-white/40 backdrop-blur-md border border-white/50 rounded-3xl shadow-xl p-10 max-w-4xl text-center mx-6">
+      <div className="relative z-20 bg-white/70 backdrop-blur-xl border border-white/80 rounded-3xl shadow-xl p-10 max-w-4xl text-center mx-6">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

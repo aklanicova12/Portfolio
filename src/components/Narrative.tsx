@@ -60,15 +60,15 @@ export default function Narrative() {
   }, []);
 
   return (
-    <section className="relative bg-white px-6 md:px-24 py-24" ref={containerRef}>
+    <section className="relative bg-white z-20 px-6 md:px-24 py-24" ref={containerRef}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
         
         {/* Left: Scrolling Text Content */}
         <div className="relative">
           {/* Scrolling Progress Line */}
-          <div className="absolute left-[-2rem] top-0 bottom-0 w-px border-l border-dashed border-primary/20">
-            <div className="sticky top-1/2 w-4 h-4 -ml-2 rounded-full border border-secondary bg-white flex items-center justify-center">
-              <div className="w-1 h-1 bg-secondary rounded-full"></div>
+          <div className="absolute left-[-2rem] top-0 bottom-0 w-px border-l border-dashed border-slate-300">
+            <div className="sticky top-1/2 w-4 h-4 -ml-2 rounded-full border border-rose-400 bg-white flex items-center justify-center">
+              <div className="w-1 h-1 bg-rose-400 rounded-full"></div>
             </div>
           </div>
 
@@ -77,7 +77,7 @@ export default function Narrative() {
             {PHASES.map((phase, index) => (
               <div 
                 key={phase.id}
-                className="narrative-section space-y-6"
+                className={`narrative-section space-y-6 transition-opacity duration-500 ${activeIndex === index ? 'opacity-100 text-slate-900' : 'opacity-40 text-slate-900'}`}
               >
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -85,13 +85,13 @@ export default function Narrative() {
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.8 }}
                 >
-                  <span className="font-sans uppercase tracking-widest text-[10px] text-secondary/60">
+                  <span className="font-sans uppercase tracking-widest text-[10px] text-rose-400 font-semibold">
                     {phase.label}
                   </span>
-                  <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary tracking-tighter leading-none">
+                  <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-tighter leading-none mt-2">
                     {phase.title}
                   </h2>
-                  <p className="font-sans text-lg text-primary/80 leading-relaxed max-w-md">
+                  <p className="font-sans text-lg leading-relaxed max-w-md mt-6">
                     {phase.description}
                   </p>
                 </motion.div>
@@ -102,7 +102,7 @@ export default function Narrative() {
 
         {/* Right: Sticky Illustration Container */}
         <div className="hidden md:block sticky top-32 h-fit">
-          <div className="relative w-full aspect-square max-w-lg bg-surface-container-low/30 border border-outline-variant/10 p-12 overflow-hidden">
+          <div className="relative w-full aspect-square max-w-lg bg-white border border-slate-100 shadow-xl rounded-[2rem] p-8 overflow-hidden">
             <div className="grain-overlay absolute inset-0"></div>
             
             <AnimatePresence mode="wait">
