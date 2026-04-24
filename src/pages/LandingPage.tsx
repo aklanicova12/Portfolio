@@ -123,7 +123,7 @@ export default function LandingPage() {
             {/* Subtle glow behind the person */}
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/50 to-purple-100/50 rounded-full blur-3xl -z-10"></div>
             <img
-              src="/AnnaKlanicová.png"
+              src="/annaklanicova.png"
               alt="Anna Klanicová"
               className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
               referrerPolicy="no-referrer"
@@ -159,24 +159,12 @@ export default function LandingPage() {
           ========================================== */}
       <section className="relative min-h-screen bg-gradient-to-b from-white via-purple-50/50 to-fuchsia-50/30 flex flex-col items-center py-32 px-6 overflow-hidden">
         
-        {/* Liquid Gradient Background Animation */}
+        {/* Liquid Gradient Background Animation - Static version */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <motion.div 
-            animate={{ 
-              x: ['-20%', '20%', '-20%'],
-              y: ['-10%', '10%', '-10%'],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          <div 
             className="absolute top-0 left-[-10%] w-[800px] h-[800px] bg-purple-300/30 rounded-full blur-[120px] mix-blend-multiply"
           />
-          <motion.div 
-            animate={{ 
-              x: ['20%', '-20%', '20%'],
-              y: ['10%', '-10%', '10%'],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          <div 
             className="absolute bottom-0 right-[-10%] w-[700px] h-[700px] bg-pink-300/20 rounded-full blur-[100px] mix-blend-multiply"
           />
         </div>
