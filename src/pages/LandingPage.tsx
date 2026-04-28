@@ -224,17 +224,17 @@ export default function LandingPage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          className="relative z-10 w-full max-w-5xl bg-white/80 backdrop-blur-xl rounded-full p-4 md:p-6 shadow-[0_8px_30px_rgb(147,51,234,0.08)] border border-white flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-[0_15px_50px_rgb(147,51,234,0.12)] transition-shadow duration-500"
+          className="relative z-10 w-full max-w-5xl bg-white/80 backdrop-blur-xl rounded-[2rem] md:rounded-full p-6 md:p-6 shadow-[0_8px_30px_rgb(147,51,234,0.08)] border border-white flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-[0_15px_50px_rgb(147,51,234,0.12)] transition-shadow duration-500"
         >
-          <div className="flex items-center gap-4 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
             <span className="font-bold text-gray-900 tracking-widest text-sm whitespace-nowrap">KISK MAGISTR</span>
-            <div className="hidden md:block w-px h-8 bg-gray-900/10"></div>
-            <span className="text-xs text-gray-600 font-medium uppercase tracking-[0.15em] hidden md:block">STAV: PROPOJOVÁNÍ ZNALOSTÍ</span>
+            <div className="hidden sm:block w-px h-8 bg-gray-900/10"></div>
+            <span className="text-[10px] sm:text-xs text-gray-600 font-medium uppercase tracking-[0.15em] text-center sm:text-left">STAV: PROPOJOVÁNÍ ZNALOSTÍ</span>
           </div>
           
-          <div className="group relative flex-grow w-full max-w-xl flex items-center gap-4 cursor-pointer">
-            {/* Tooltip */}
-            <div className="absolute -top-12 left-[65%] -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-900 text-white text-xs py-1.5 px-3 rounded-lg pointer-events-none whitespace-nowrap shadow-xl z-20">
+          <div className="group relative flex-grow w-full max-w-xl flex flex-col sm:flex-row items-center gap-4 cursor-pointer">
+            {/* Tooltip - Hidden on small mobile to prevent layout breaks */}
+            <div className="absolute -top-12 left-[65%] -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-900 text-white text-xs py-1.5 px-3 rounded-lg pointer-events-none whitespace-nowrap shadow-xl z-20 hidden sm:block">
               Zbývá 35 % do konce
               <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
             </div>
@@ -254,7 +254,7 @@ export default function LandingPage() {
                 />
               </motion.div>
             </div>
-            <div className="text-xs font-bold text-gray-900 whitespace-nowrap flex items-center gap-1 min-w-[140px]">
+            <div className="text-[10px] sm:text-xs font-bold text-gray-900 whitespace-nowrap flex items-center gap-1 min-w-0 sm:min-w-[140px]">
               <motion.span>{displayProgress}</motion.span>
               <span>% JOURNEY COMPLETED</span>
             </div>
@@ -266,7 +266,7 @@ export default function LandingPage() {
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)]"
             ></motion.div>
-            <span className="text-sm font-bold text-gray-900">Aktivní studium</span>
+            <span className="text-xs sm:text-sm font-bold text-gray-900">Aktivní studium</span>
           </div>
         </motion.div>
       </section>
@@ -326,7 +326,7 @@ export default function LandingPage() {
             </p>
             <a 
               href="mailto:aklanicova15@gmail.com"
-              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-[#002147] text-white rounded-full font-bold tracking-wide overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,33,71,0.4)] active:scale-95 z-10"
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 bg-[#002147] text-white rounded-full font-bold tracking-wide overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,33,71,0.4)] active:scale-95 z-10 cursor-pointer"
             >
               <span className="relative z-10">Kontaktovat</span>
               <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -335,34 +335,7 @@ export default function LandingPage() {
           </motion.div>
         </div>
 
-        {/* Minimalist Footer */}
-        <footer className="absolute bottom-0 left-0 w-full border-t border-white/20 py-6 px-6 md:px-12 z-20 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-6">
-            <a 
-              href="https://medium.com/@aklanicova15" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-500 hover:text-gray-900 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.2)]"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M2.25 12c0-3.18 2.5-5.75 5.58-5.75s5.58 2.57 5.58 5.75-2.5 5.75-5.58 5.75-5.58-2.57-5.58-5.75z" />
-                <path d="M14.25 12c0-3.04 1.23-5.5 2.75-5.5s2.75 2.46 2.75 5.5-1.23 5.5-2.75 5.5-2.75-2.46-2.75-5.5z" />
-                <path d="M20.5 12c0-2.76.45-5 1-5s1 2.24 1 5-.45 5-1 5-1-2.24-1-5z" />
-              </svg>
-            </a>
-            <a 
-              href="https://github.com/aklanicova12" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-500 hover:text-gray-900 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.2)]"
-            >
-              <Github size={20} />
-            </a>
-          </div>
-          <p className="text-sm text-gray-600/60 font-light tracking-wide">
-            Kód, data a empatie. Anna Klanicová © 2026
-          </p>
-        </footer>
+
       </section>
 
     </motion.div>
