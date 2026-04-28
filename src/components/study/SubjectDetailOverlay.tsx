@@ -24,15 +24,30 @@ export const SubjectDetailOverlay = ({
   const checkScroll = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      setShowLeftArrow(scrollLeft > 10);
-      setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 10);
+      setShowLeftArrow(scrollLeft > 2);
+      // Math.ceil helps deal with fractional scroll values on some screens
+      setShowRightArrow(Math.ceil(scrollLeft) < scrollWidth - clientWidth - 2);
     }
   };
 
   useEffect(() => {
     checkScroll();
+    
+    // Check scroll again after fonts have loaded, as custom fonts change the button widths
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        checkScroll();
+        // Fallback short timeout just in case of other layout shifts
+        setTimeout(checkScroll, 300);
+      });
+    } else {
+      setTimeout(checkScroll, 500);
+    }
+    
     window.addEventListener('resize', checkScroll);
-    return () => window.removeEventListener('resize', checkScroll);
+    return () => {
+      window.removeEventListener('resize', checkScroll);
+    };
   }, []);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -55,7 +70,7 @@ export const SubjectDetailOverlay = ({
 
       {/* Top Navigation Bar */}
       <nav className="sticky top-0 z-40 w-full bg-white/90 md:bg-white/80 backdrop-blur-3xl border-b border-slate-200/50 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center gap-6 md:gap-10">
+        <div className="w-full px-4 md:px-8 py-4 flex items-center gap-4 md:gap-8">
           <button
             onClick={onBackToSelection}
             className="group flex items-center gap-3 text-slate-500 hover:text-slate-900 transition-colors shrink-0 cursor-pointer"
@@ -139,7 +154,7 @@ export const SubjectDetailOverlay = ({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
               {/* Left Column */}
               <div className="lg:col-span-5 space-y-10">
                 <div>
